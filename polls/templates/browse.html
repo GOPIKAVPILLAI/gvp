@@ -1,0 +1,9 @@
+
+    <div>
+        <h2>Browsed Topics</h2>
+        <a href="{%url 'myname'%}"><h4>All</h4></a>
+    {% for m in member %}
+        <a href="{%url 'myname'%}?q={{m.fname}}"><h4>{{m.fname}}</h4></a>
+        {%endfor%}
+</div>
+

@@ -1,0 +1,50 @@
+
+{%extends 'base.html'%}    
+{% block content %}
+
+     <style>
+        .class-container{
+            display: grid;
+            grid-template-columns:3fr 1fr;
+        }
+    </style> 
+    <div class="class-container" > 
+        
+        
+        <div>
+            <h1 >{{ hhh.det }}</h1>
+            <div><hr>
+                {% for messages in msgs%}
+                {% if request.user == messages.host%}
+                <a href="{% url 'delmsg' messages.id %}">Delete</a>
+                {% endif%}
+                <p><small>@{{messages.host}}-{{messages.time|timesince}} ago</small></p>
+                <h5 style="color:purple;">{{messages}}</h5>
+                <hr>
+                {%endfor%}
+
+            </div>
+            {% if request.user.is_authenticated %}
+                <div>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <input type="text" name="comment" placeholder="Type user message here.....">
+                    </form>
+                </div>
+            {%endif%}
+        </div>
+
+        <div>
+            <h3>Participates</h3>
+            <hr>
+            {% for user in p%}
+                <h4>@ {{user.username}}</h4>
+                <hr>
+            {%endfor%}
+        </div>
+
+
+    </div>
+{%endblock%} 
+
+    

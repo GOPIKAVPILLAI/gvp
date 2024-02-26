@@ -1,0 +1,16 @@
+
+
+    <div>
+        <h3 style="font-family:arial; color:brown">Recent Activiy</h3>
+         {%for messages in msgs%}
+            <small><p><a href="{% url 'profile' messages.host_id %}">@{{messages.host.username}}</a>--{{messages.time|timesince}}</br>replied to "{{messages.hhh}}"</br><h5>"{{messages.body}}"</h5></p></small>
+            
+            {% if request.user == messages.host%}
+            <a href="{% url 'delmsg' messages.id %}">Delete</a>
+            {% endif%}<hr>
+            {%endfor%}
+                    {% comment %} <li><p style="color:red;">{{message}}</p></li>
+                {% endfor %}</ul>
+            {% endif%} {% endcomment %} 
+    </div>
+

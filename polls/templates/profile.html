@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<div class="pro">
+    <div>
+    {% include "browse.html" %}
+
+    </div>
+
+    <div>
+        <p><h5>@{{f.host}}<h5></p>
+    </div>
+    <div>
+        {% include "recent.html" %}
+            {% comment %} <small><p>@{{msgs.host.username}}</a>--{{msgs.time|timesince}}</br>replied to "{{msgs.hhh}}"</br><h5>"{{msgs.body}}"</h5></p></small>
+            
+            {% if request.user == msgs.host%}
+            <a href="{% url 'delmsg' msgs.id %}">Delete</a>
+            {% endif%}<hr> {% endcomment %}
+          
+    </div>
+</div>
+{% endblock content%}

@@ -1,0 +1,15 @@
+
+nav{
+    background-color: brown;
+}
+.contain{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+.pro{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+body{
+    background-color: aquamarine;
+}
